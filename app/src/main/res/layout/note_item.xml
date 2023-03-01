@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="5dp"
+    app:cardCornerRadius="5dp"
+    android:background="#607D8B"
+    android:clickable="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:padding="5dp">
+        <TextView
+            android:id="@+id/title2"
+            android:padding="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:background="#ED598B">
+
+        </TextView>
+        <com.google.android.material.divider.MaterialDivider
+            app:dividerColor="#106282"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp">
+
+        </com.google.android.material.divider.MaterialDivider>
+        <TextView
+            android:id="@+id/dis1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:textStyle="normal"
+            android:maxLines="4">
+
+        </TextView>
+        <com.google.android.material.divider.MaterialDivider
+            app:dividerColor="#106282"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp">
+
+        </com.google.android.material.divider.MaterialDivider>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#01080B"
+                android:padding="3dp"
+                android:text="12:00 PM"
+                android:textColor="@color/white"
+                android:textSize="12sp">
+
+            </TextView>
+
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/delete"
+                android:paddingTop="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_delete_24" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
