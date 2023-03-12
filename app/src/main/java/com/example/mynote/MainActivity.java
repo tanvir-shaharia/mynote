@@ -1,7 +1,9 @@
 package com.example.mynote;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -73,5 +75,29 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         binding.linerlayout1.setVisibility(View.GONE);
+        showAlert();
+    }
+
+    private void showAlert() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Exit");
+        builder.setIcon(R.drawable.baseline_exit_to_app_24);
+        builder.setMessage("Are you sure to Exit");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.create().show();
+
+
     }
 }

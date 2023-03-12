@@ -2,6 +2,7 @@ package com.example.mynote.RecylerView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -13,10 +14,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mynote.R;
 import com.example.mynote.Room.Note;
+import com.example.mynote.Room.NoteDatabase;
 import com.example.mynote.ViewActivity;
 
 import java.text.DateFormat;
@@ -53,6 +56,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Note_Viewholde
         holder.date_text.setText(dt.format(date));
         holder.delete.setImageResource(R.drawable.baseline_delete_24);
 
+        holder.delete.setOnClickListener(view -> {
+             deletealert(context,note);
+
+        });
+
         holder.itemView.setOnClickListener(view -> {
 
             Intent intent=new Intent(context, ViewActivity.class);
@@ -63,6 +71,29 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.Note_Viewholde
             context.startActivity(intent);
 
         });
+
+    }
+
+    private void deletealert(Context context, Note note) {
+
+        AlertDialog.Builder builder=new AlertDialog.Builder(context);
+        builder.setTitle("Delete")
+                .setIcon(R.drawable.baseline_delete_24)
+                .setMessage("Are you sure to Delete?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        NoteDatabase.getInstance(context).getDao().delete(note);
+                        Intent intent=new Intent(context,context.getClass());
+                        context.startActivity(intent);
+
+                    }
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                }).create().show();
 
     }
 
